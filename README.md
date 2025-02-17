@@ -35,4 +35,6 @@ However, longer texts dilute sentiment, as neutral or mixed content reduces inte
 
 # Evaluation, Limitation & Conclusion
 ![Alt text](Tuning Performance.png)
+![Tuning Performance](Tuning%20Performance.png)
+
 
