@@ -31,3 +31,8 @@ The training loop starts with model.train(), updating all layers. Each epoch pro
 ## Applying Headline-trained Model on Full-text
 After tuning the FinBERT model from headlines, I used it to classify sentiment for full-text. Since headline and the full text of a news article often share similar vocabulary, the model is transferable.
 However, longer texts dilute sentiment, as neutral or mixed content reduces intensity. To mitigate this, I used length-normalized sentiment adjustment (Amplayo et al., 2019), which segments long text into headline-sized chunks and weights sections based on their contribution to overall sentiment
+
+
+# Evaluation, Limitation & Conclusion
+![Alt text](Tuning Performance.png)
+
