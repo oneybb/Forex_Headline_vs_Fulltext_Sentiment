@@ -34,5 +34,5 @@ However, longer texts dilute sentiment, as neutral or mixed content reduces inte
 
 
 # Evaluation, Limitation & Conclusion
-![Alt text](Tuning Performance.png)
+![Alt text]([Tuning Performance.png](https://github.com/oneybb/Forex_Sentiment/blob/main/Tuning%20Performance.png))
 
