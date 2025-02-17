@@ -48,11 +48,11 @@ Given the strong performance of the fine-tuned FinBERT model in classifying Fore
 
 
 ## Performance of Headline sentiment
-
+![Tuning Performance](Headline%20Classification.png)
 After comparing headline sentiment against model-classified full-text sentiment, the confusion matrix (Fig 4) showed poor performance of Headline sentiment. An overall low accuracy (0.4627) suggests that headline sentiment often diverges from full-text sentiment, reinforcing the hypothesis that headlines may not always reflect the true market condition conveyed in the article.
 
 Note that the reference point, full-text sentiment, is model-derived, potential limitations and improvements are discussed in the Limitation section.
-
+![Tuning Performance](Evaluation%20Matrix.png)
 High precision (64.9%) but low recall (41.7%) for Positive sentiments, suggests headlines are good at predicting Positive when it exists but fail to capture all instances of full-text positivity. Neutral sentiment is the hardest to classify, with the lowest F1-score (43.0%). Headlines struggle to maintain neutrality, often exaggerating sentiment. Negative sentiment is underreported, with low precision(36.1%) but relatively high recall (55.2%), meaning that Negative sentiment is often softened in headlines.
 
 Different news agencies also have similar accuracy (FX Street: 0.4627, Forex Live: 0.4623), suggesting that headline sentiment misalignment with full-text sentiment is a systemic issue rather than being specific to a single source.
