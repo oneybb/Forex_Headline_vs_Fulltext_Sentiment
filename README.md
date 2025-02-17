@@ -39,8 +39,40 @@ However, longer texts dilute sentiment, as neutral or mixed content reduces inte
 
 # Evaluation, Limitation & Conclusion
 
+## Performance of Tuning
+
 ![Tuning Performance](Tuning%20Performance.png)
 Fine-tuning FinBERT was highly effective, drastically improving accuracy, precision, recall, and AUC (Fig 3). It correctly classifies sentiment in 86.91% of cases, compared to just 23.09% for the untuned model. The fine-tuned model does not just predict more correctly overall but also distributes predictions across sentiment classes more accurately (Fig 2).
 
 Given the strong performance of the fine-tuned FinBERT model in classifying Forex news sentiment, it is appropriate to extend its use for full-text sentiment classification for the next step.
 
+
+## Performance of Headline sentiment
+
+After comparing headline sentiment against model-classified full-text sentiment, the confusion matrix (Fig 4) showed poor performance of Headline sentiment. An overall low accuracy (0.4627) suggests that headline sentiment often diverges from full-text sentiment, reinforcing the hypothesis that headlines may not always reflect the true market condition conveyed in the article.
+
+Note that the reference point, full-text sentiment, is model-derived, potential limitations and improvements are discussed in the Limitation section.
+
+High precision (64.9%) but low recall (41.7%) for Positive sentiments, suggests headlines are good at predicting Positive when it exists but fail to capture all instances of full-text positivity. Neutral sentiment is the hardest to classify, with the lowest F1-score (43.0%). Headlines struggle to maintain neutrality, often exaggerating sentiment. Negative sentiment is underreported, with low precision(36.1%) but relatively high recall (55.2%), meaning that Negative sentiment is often softened in headlines.
+
+Different news agencies also have similar accuracy (FX Street: 0.4627, Forex Live: 0.4623), suggesting that headline sentiment misalignment with full-text sentiment is a systemic issue rather than being specific to a single source.
+
+
+
+# Limitations & Improvements
+
+Unlike traditional evaluations using manually labeled ground truth, this approach assumes full-text sentiment as the true value for assessing headline accuracy. This relies on the assumption that full-text sentiment provides a more accurate reflection of market conditions than headlines. However, this may not always hold true, as full-text articles can also introduce subjective framing, editorial bias, or conflicting viewpoints that dilute or distort sentiment rather than clarify it.
+
+Another key limitation is that full-text sentiment itself is a predicted value rather than a manually labeled ground truth. Since it is derived from a fine-tuned model, it may carry inherent biases or errors, especially if the model misclassified sentiment and the effect propagates into headline sentiment evaluation.
+
+Therefore, instead of relying solely on model-predicted full-text sentiment, incorporating human-labeled sentiment annotations for a subset of the full-text data can validate whether full-text sentiment accurately represents market sentiment. This could serve as a benchmark to assess the model’s reliability. Additionally, using multiple sentiment models (e.g., FinBERT + LLM-based classifier + sentiment lexicons) could help cross-validate sentiment labels, reducing the risk of relying on one model’s potential biases.
+
+
+# Conclusion & Trading Opportunities
+
+This study highlights the limitations of headlines in accurately reflecting full-text sentiment of a news. Using the tuned FinBERT model, I found that while headlines effectively detect positive sentiment, they often exaggerate its intensity, while negative sentiment is frequently softened, making headlines appear more neutral than the full text suggests.
+
+Headline sentiments are more indicative of immediate market reactions, while full articles provide a more balanced reflection of actual market conditions. Forex traders can exploit this gap, identifying cases where sensational headlines drive short-term movements that later correct as full-text information is absorbed. A sample trading strategy leveraging this sentiment divergence could be short-term momentum trades on exaggerated headlines followed by mean-reversion trades based on full-text sentiment.
+
+# Citation
+Amplayo, R. K., Lim, S., & Hwang, S. (2019, September 18). Text length adaptation in sentiment classification. arXiv.org. https://arxiv.org/abs/1909.08306
