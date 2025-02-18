@@ -4,6 +4,8 @@ In the fast-paced forex market, traders often rely on headlines for quick decisi
 
 This project investigates the discrepancy between news headline sentiment and full-text sentiment. The study uses a manually labeled dataset of headline sentiment and evaluates its alignment against full-text sentiment, which is predicted using a fine-tuned FinBERT model. By treating full-text sentiment as a reference point, this analysis aims to assess the accuracy and reliability of forex news headlines in reflecting broader article sentiment.
 
+This project was done under the NUS module DSA4265
+
 
 # Dataset Preparation
 
